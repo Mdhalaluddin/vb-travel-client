@@ -8,6 +8,7 @@ import Navbar from "../Conpunents/Navbar";
 import Footer from "../Conpunents/Footer";
 
 const Login = () => {
+    
     return (
         <div>
             <Navbar></Navbar>
@@ -19,7 +20,7 @@ const Login = () => {
                     {/* <Typography color="gray" className="mt-1 font-normal">
                 Nice to meet you! Enter your details to .
             </Typography> */}
-                    <form className="mt-8 mb-2 w-80 max-w-screen-lg sm:w-96">
+                    <form  className="mt-8 mb-2 w-80 max-w-screen-lg sm:w-96">
                         <div className="mb-1 flex flex-col gap-6">
                             <Typography variant="h6" color="blue-gray" className="-mb-3">
                                 Your Email
