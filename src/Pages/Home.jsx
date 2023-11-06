@@ -1,4 +1,5 @@
 import Cover from "../Conpunents/Cover";
+import Footer from "../Conpunents/Footer";
 import Navbar from "../Conpunents/Navbar";
 
 
@@ -8,6 +9,7 @@ const Home = () => {
         <div>
             <Navbar></Navbar>
             <Cover></Cover>
+            <Footer></Footer>
         </div>
     );
 };
