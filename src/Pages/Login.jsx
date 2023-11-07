@@ -1,8 +1,10 @@
 import {
     Card,
+    IconButton,
     Input,
     Typography,
 } from "@material-tailwind/react";
+import { FaGoogle } from 'react-icons/fa';
 import { Link } from "react-router-dom";
 import Navbar from "../Conpunents/Navbar";
 import Footer from "../Conpunents/Footer";
@@ -11,44 +13,49 @@ import Swal from "sweetalert2";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 
 const Login = () => {
-    const {singIn} = useContext(AuthContext)
+    const { singIn, googleSingIn } = useContext(AuthContext)
     const [success, setSuccess] = useState('')
     const [loginError, setLoginError] = useState('')
-const handleLoginBtn = e=>{
-    e.preventDefault()
-    const email = e.target.email.value;
-    const password =e.target.password.value;
-    setLoginError('')
-    setSuccess('')
+    const handleLoginBtn = e => {
+        e.preventDefault()
+        const email = e.target.email.value;
+        const password = e.target.password.value;
+        setLoginError('')
+        setSuccess('')
 
-    singIn( email, password)
-    .then(result=>{
-        console.log(result.user)
-        if (setSuccess) {
-            Swal.fire("User Login Successfully")
-        }
-        return;
-    })
-    .catch(error =>{
-        console.log(error);
-        if (email) {
-            if (setLoginError) {
-                Swal.fire("email already in use")
-            }
-        }
-        return;
-    })
-}
-    
+        singIn(email, password)
+            .then(result => {
+                console.log(result.user)
+                if (setSuccess) {
+                    Swal.fire("User Login Successfully")
+                }
+                return;
+            })
+            .catch(error => {
+                console.log(error);
+                if (email) {
+                    if (setLoginError) {
+                        Swal.fire("email already in use")
+                    }
+                }
+                return;
+            })
+           
+    }
+    const handleGoogleSingin =()=>{
+        googleSingIn()
+        .then()
+        .catch()
+    }
     return (
         <div>
             <Navbar></Navbar>
-            <div className="flex items-center justify-center my-7">
+            <div className="flex items-center justify-center md:mt-10 mt-20 my-7">
                 <Card className="bg-gray-400 p-5" color="transparent" shadow={false}>
                     <Typography className="text-center" variant="h4" color="blue-gray">
                         Login Now
                     </Typography>
-                    <form onSubmit={handleLoginBtn}  className="mt-8 mb-2 w-80 max-w-screen-lg sm:w-96">
+                    <form onSubmit={handleLoginBtn} className="mt-8 mb-2 w-80 max-w-screen-lg sm:w-96">
                         <div className="mb-1 flex flex-col gap-6">
                             <Typography variant="h6" color="blue-gray" className="-mb-3">
                                 Your Email
@@ -85,13 +92,18 @@ const handleLoginBtn = e=>{
                                 </a>
                             </Link>
                         </Typography>
+                        <div className="text-center my-3">
+                            <IconButton className="rounded bg-[#ea4335] hover:shadow-[#ea4335]/20 focus:shadow-[#ea4335]/20 active:shadow-[#ea4335]/10">
+                                <button onClick={handleGoogleSingin} className="text-2xl"><FaGoogle></FaGoogle></button>
+                            </IconButton>
+                        </div>
                     </form>
                 </Card>
                 {
-                    loginError && {loginError}
+                    loginError && { loginError }
                 }
                 {
-                    success && {success}
+                    success && { success }
                 }
             </div>
             <Footer></Footer>

@@ -42,13 +42,26 @@ const Navbar = () => {
                 <div className="navbar-end">
                     {
                         user ? <>
-                        <span>{user.email}</span>
-                        <a onClick={handleLogOut} className="btn btn-sm px-2 bg-brown-200">LogOut</a>
+                            <nav className="flex items-center justify-center">
+                                <div className="dropdown mr-4 dropdown-bottom dropdown-end">
+                                    <label tabIndex={0} className="m-1">
+                                        <div className="avatar online">
+                                            <div className="w-14 rounded-full">
+                                                <img src={user.photoURL} />
+                                            </div>
+                                        </div>
+                                    </label>
+                                    <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-brown-200 rounded-box w-52">
+                                        <li><a className="p-2">{user.email}</a></li>
+                                    </ul>
+                                </div>
+                                <a onClick={handleLogOut} className="btn btn-sm px-2 bg-brown-200">LogOut</a>
+                            </nav>
                         </>
-                        :
-                    <Link to='/login'>
-                        <a className="btn btn-sm">Login</a>
-                    </Link>
+                            :
+                            <Link to='/login'>
+                                <a className="btn btn-sm">Login</a>
+                            </Link>
                     }
 
                 </div>

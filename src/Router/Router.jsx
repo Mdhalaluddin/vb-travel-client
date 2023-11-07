@@ -6,6 +6,8 @@ import About from "../Pages/About";
 import AddBlog from "../Pages/AddBlog";
 import Registration from "../Pages/Registration";
 import Login from "../Pages/Login";
+import Wishlist from "../Pages/Wishlist";
+import PrivetRoute from "../PrivetRoute/PrivetRoute";
 
 const myCreateRoute = createBrowserRouter([
     {
@@ -32,6 +34,10 @@ const myCreateRoute = createBrowserRouter([
         {
           path: '/login',
           element: <Login></Login>
+        },
+        {
+          path: '/wishlist',
+          element: <PrivetRoute><Wishlist></Wishlist></PrivetRoute>
         }
       ]
     },
