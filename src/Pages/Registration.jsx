@@ -6,12 +6,12 @@ import {
 import { Link } from "react-router-dom";
 import Navbar from "../Conpunents/Navbar";
 import Footer from "../Conpunents/Footer";
-import { createUserWithEmailAndPassword } from "firebase/auth";
-import auth from "../firebase/firebase.config";
 import Swal from "sweetalert2";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { AuthContext } from "../AuthProvider/AuthProvider";
 
 const Registration = () => {
+    const {createUser} = useContext(AuthContext)
     const [registrationError, setRegistrationError] = useState('')
     const [success, setSuccess] = useState('')
     const handleLoginBtn = e => {
@@ -23,7 +23,7 @@ const Registration = () => {
         setRegistrationError('')
         setSuccess('')
 
-        if (password.length < 6) {
+        if (password.length < 8) {
             if (setRegistrationError) {
                 Swal.fire("password should be at least 6 characters or longer")
             }
@@ -40,13 +40,13 @@ const Registration = () => {
             }
             return;
         }
-
-        createUserWithEmailAndPassword(auth, email, password)
+        createUser(email, password)
             .then(result => {
                 console.log(result.user);
                 if (setSuccess) {
                     Swal.fire("User Created Succesefully")
                 }
+                return;
             })
             .catch(error => {
                 console.log(error)
@@ -55,6 +55,7 @@ const Registration = () => {
                         Swal.fire("email already in use")
                     }
                 }
+                return;
             }
             )
 

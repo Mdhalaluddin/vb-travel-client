@@ -6,8 +6,39 @@ import {
 import { Link } from "react-router-dom";
 import Navbar from "../Conpunents/Navbar";
 import Footer from "../Conpunents/Footer";
+import { useContext, useState } from "react";
+import Swal from "sweetalert2";
+import { AuthContext } from "../AuthProvider/AuthProvider";
 
 const Login = () => {
+    const {singIn} = useContext(AuthContext)
+    const [success, setSuccess] = useState('')
+    const [loginError, setLoginError] = useState('')
+const handleLoginBtn = e=>{
+    e.preventDefault()
+    const email = e.target.email.value;
+    const password =e.target.password.value;
+    setLoginError('')
+    setSuccess('')
+
+    singIn( email, password)
+    .then(result=>{
+        console.log(result.user)
+        if (setSuccess) {
+            Swal.fire("User Login Successfully")
+        }
+        return;
+    })
+    .catch(error =>{
+        console.log(error);
+        if (email) {
+            if (setLoginError) {
+                Swal.fire("email already in use")
+            }
+        }
+        return;
+    })
+}
     
     return (
         <div>
@@ -17,10 +48,7 @@ const Login = () => {
                     <Typography className="text-center" variant="h4" color="blue-gray">
                         Login Now
                     </Typography>
-                    {/* <Typography color="gray" className="mt-1 font-normal">
-                Nice to meet you! Enter your details to .
-            </Typography> */}
-                    <form  className="mt-8 mb-2 w-80 max-w-screen-lg sm:w-96">
+                    <form onSubmit={handleLoginBtn}  className="mt-8 mb-2 w-80 max-w-screen-lg sm:w-96">
                         <div className="mb-1 flex flex-col gap-6">
                             <Typography variant="h6" color="blue-gray" className="-mb-3">
                                 Your Email
@@ -59,6 +87,12 @@ const Login = () => {
                         </Typography>
                     </form>
                 </Card>
+                {
+                    loginError && {loginError}
+                }
+                {
+                    success && {success}
+                }
             </div>
             <Footer></Footer>
         </div>
