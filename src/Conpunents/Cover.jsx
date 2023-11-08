@@ -1,11 +1,11 @@
 import { Button, Carousel, Typography, } from "@material-tailwind/react";
 
 const Cover = () => {
-    return (
-    <Carousel className="max-w-[92%] mx-auto">
+  return (
+    <Carousel className="max-w-[92%] mx-auto my-10 rounded-lg">
       <div className="relative h-[500px] w-full">
         <img
-          src="https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2560&q=80"
+          src="https://i.ibb.co/VvXrdcD/programming-background-collage.jpg"
           alt="image 1"
           className="h-full w-full object-cover"
         />
@@ -16,17 +16,14 @@ const Cover = () => {
               color="white"
               className="mb-4 text-3xl md:text-4xl lg:text-5xl"
             >
-              The Beauty of Nature
+              Welcome to Learn CSS!
             </Typography>
             <Typography
               variant="lead"
               color="white"
               className="mb-12 opacity-80"
             >
-              It is not so much for its beauty that the forest makes a claim
-              upon men&apos;s hearts, as for that subtle something, that quality
-              of air that emanation from old trees, that so wonderfully changes
-              and renews a weary spirit.
+              This course breaks down the fundamentals of CSS into digestible, easy to understand pieces. Over the next few modules, you well learn how the core aspects of CSS work and how to use them effectively in your projects. Use the menu pane by the Learn CSS logo to navigate the modules.
             </Typography>
             <div className="flex justify-center gap-2">
               <Button size="lg" color="white">
@@ -41,7 +38,7 @@ const Cover = () => {
       </div>
       <div className="relative h-[500px]  w-full">
         <img
-          src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80"
+          src="https://i.ibb.co/X8gVN93/html-system-website-concept-1.jpg"
           alt="image 2"
           className="h-full w-full object-cover"
         />
@@ -52,17 +49,14 @@ const Cover = () => {
               color="white"
               className="mb-4 text-3xl md:text-4xl lg:text-5xl"
             >
-              The Beauty of Nature
+              Welcome to Learn HTML!
             </Typography>
             <Typography
               variant="lead"
               color="white"
               className="mb-12 opacity-80"
             >
-              It is not so much for its beauty that the forest makes a claim
-              upon men&apos;s hearts, as for that subtle something, that quality
-              of air that emanation from old trees, that so wonderfully changes
-              and renews a weary spirit.
+              Welcome to HTML! HyperText Markup Language, or HTML, is the backbone of the web, providing the content, as well as the structure of that content, that you see displayed in your web browser.
             </Typography>
             <div className="flex justify-center gap-2">
               <Button size="lg" color="white">
@@ -77,27 +71,25 @@ const Cover = () => {
       </div>
       <div className="relative h-[500px] w-full">
         <img
-          src="https://images.unsplash.com/photo-1518623489648-a173ef7824f3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2762&q=80"
+          src="https://i.ibb.co/DDtQf0W/html-system-website-concept.jpg"
           alt="image 3"
           className="h-full w-full object-cover"
         />
         <div className="absolute inset-0 grid h-full w-full place-items-center bg-black/75">
           <div className="w-3/4 text-center md:w-2/4">
-            <Typography
+          <Typography
               variant="h1"
               color="white"
-              className="mb-4 text-2xl md:text-4xl lg:text-5xl"
+              className="mb-4 text-3xl md:text-4xl lg:text-5xl"
             >
-              The Beauty of Nature
+              Programming Languages!
             </Typography>
             <Typography
               variant="lead"
               color="white"
               className="mb-12 opacity-80"
             >
-              It is not so much for its beauty that the forest makes a claim
-              upon men&apos;s hearts, as for that subtle something, that quality
-              of air that emanation from old trees.
+              Most web pages contain a fairly standard set of content, including a title, text content, links to images, navigation links, headers and footers, and more. All of this information is stored as HTML that defines the structure of the page.
             </Typography>
             <div className="flex justify-center gap-2">
               <Button size="lg" color="white">
