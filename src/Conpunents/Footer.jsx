@@ -6,10 +6,10 @@ const Footer = () => {
             <div>
                 <aside>
                     <div className="flex items-center justify-center">
-                        <img className="w-20 h-20 " src="https://i.ibb.co/fYGGC8v/306727995-477224907747391-5021090266511720501-n-removebg-preview.png" alt="" />
+                        <img className="w-20 h-20 " src="https://i.ibb.co/k18449P/download-removebg-preview.png" alt="" />
                     </div>
                     <p className="font-bold">
-                        Bromon Vilas Ltd. <br />Providing reliable tech since 1992
+                        BD Ltd. <br />Providing reliable tech since 1992
                     </p>
                     <p>Copyright © 2023 - All right reserved</p>
                 </aside>

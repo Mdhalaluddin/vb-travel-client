@@ -3,7 +3,7 @@ import {
     Input,
     Typography,
 } from "@material-tailwind/react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Navbar from "../Conpunents/Navbar";
 import Footer from "../Conpunents/Footer";
 import Swal from "sweetalert2";
@@ -11,7 +11,8 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 
 const Registration = () => {
-    const {createUser} = useContext(AuthContext)
+    const navigate = useNavigate()
+    const { createUser } = useContext(AuthContext)
     const [registrationError, setRegistrationError] = useState('')
     const [success, setSuccess] = useState('')
     const handleLoginBtn = e => {
@@ -43,8 +44,10 @@ const Registration = () => {
         createUser(email, password)
             .then(result => {
                 console.log(result.user);
+                navigate(location?.state ? location.state : '/')
                 if (setSuccess) {
                     Swal.fire("User Created Succesefully")
+
                 }
                 return;
             })

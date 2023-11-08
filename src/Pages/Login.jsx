@@ -5,7 +5,7 @@ import {
     Typography,
 } from "@material-tailwind/react";
 import { FaGoogle } from 'react-icons/fa';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Navbar from "../Conpunents/Navbar";
 import Footer from "../Conpunents/Footer";
 import { useContext, useState } from "react";
@@ -13,6 +13,7 @@ import Swal from "sweetalert2";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 
 const Login = () => {
+    const navigate = useNavigate()
     const { singIn, googleSingIn } = useContext(AuthContext)
     const [success, setSuccess] = useState('')
     const [loginError, setLoginError] = useState('')
@@ -29,7 +30,7 @@ const Login = () => {
                 if (setSuccess) {
                     Swal.fire("User Login Successfully")
                 }
-                return;
+                return navigate(location?.state ? location.state : '/')
             })
             .catch(error => {
                 console.log(error);
@@ -44,7 +45,13 @@ const Login = () => {
     }
     const handleGoogleSingin =()=>{
         googleSingIn()
-        .then()
+        .then(result => {
+            console.log(result.user)
+            if (setSuccess) {
+                Swal.fire("Google Login Successfully")
+            }
+            return navigate(location?.state ? location.state : '/')
+        })
         .catch()
     }
     return (
@@ -83,7 +90,7 @@ const Login = () => {
                                 }}
                             />
                         </div>
-                        <input className="mt-6 w-full bg-black p-2 rounded-lg text-white" type="submit" value="Registration" />
+                        <input className="mt-6 w-full bg-black p-2 rounded-lg text-white" type="submit" value="Login" />
                         <Typography color="gray" className="mt-4 text-center font-normal">
                             Have a new? Please{" "}
                             <Link to='/registration'>

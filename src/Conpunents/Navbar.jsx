@@ -14,11 +14,13 @@ const Navbar = () => {
     }
     const NavLink =
         <>
-            <li><Link to='/addBlog'>Add Blog</Link></li>
-            <li><Link to='/registration'>Registration</Link></li>
             <li><Link to='/allBlog'>All Blog</Link></li>
+            <li><Link to='/addBlog'>Add Blog</Link></li>
+            <li><Link to='/update'>Update</Link></li>
+            <li><Link to='/registration'>Registration</Link></li>
             <li><Link to='/wishlist'>Wishlist</Link></li>
             <li><Link to='/about'>About</Link></li>
+
         </>
     return (
         <div className="bg-gray-900">
@@ -33,7 +35,7 @@ const Navbar = () => {
                         </ul>
                     </div>
                     <Link to='/'>
-                    <img className="w-10 h-10" src="https://i.ibb.co/fYGGC8v/306727995-477224907747391-5021090266511720501-n-removebg-preview.png" alt="" />
+                        <img className="w-20 h-14" src="https://i.ibb.co/k18449P/download-removebg-preview.png" alt="" />
                     </Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
@@ -43,9 +45,11 @@ const Navbar = () => {
                 </div>
                 <div className="navbar-end">
                     {
-                        user ? <>
+                        user ?. email? <>
                             <nav className="flex items-center justify-center">
-                                <div className="dropdown pt-2 mr-4 dropdown-bottom dropdown-end">
+                                {
+                                    user?.photoURL ?
+                                    <div className="dropdown pt-2 mr-4 dropdown-bottom dropdown-end">
                                     <label tabIndex={0} className="m-1">
                                         <div className="avatar online">
                                             <div className="w-14 rounded-full">
@@ -57,6 +61,9 @@ const Navbar = () => {
                                         <li><a className="p-2">{user.email}</a></li>
                                     </ul>
                                 </div>
+                                :
+                                <li><a className="p-2 text-red-200">{user.email}</a></li>
+                                }
                                 <a onClick={handleLogOut} className="btn btn-sm px-2 bg-brown-200">LogOut</a>
                             </nav>
                         </>
