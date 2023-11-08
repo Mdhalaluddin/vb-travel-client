@@ -15,7 +15,21 @@ const AddBlog = () => {
         const shortDescription = form.shortDescription.value;
         const longDescription = form.longDescription.value;
         const img = form.img.value;
-        console.log({ title, select, shortDescription, longDescription, img });
+        // console.log({ title, select, shortDescription, longDescription, img });
+        const newCourses = { title, select, shortDescription, longDescription, img };
+        console.log(newCourses);
+
+        fetch('http://localhost:5000/language', {
+            method: 'POST',
+            headers:{
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(newCourses)
+        })
+        .then(res => res.json())
+        .then(data=> {
+            console.log(data);
+        })
 
     }
     return (
