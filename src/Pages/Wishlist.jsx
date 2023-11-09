@@ -1,58 +1,65 @@
-import { Link, useLoaderData, useParams } from "react-router-dom";
+
 import Navbar from "../Conpunents/Navbar";
 import Footer from "../Conpunents/Footer";
-import { TbHttpDelete } from 'react-icons/tb';
-import {
-    Card,
-    CardHeader,
-    CardBody,
-    Typography,
-    Button,
-} from "@material-tailwind/react";
+
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../AuthProvider/AuthProvider";
+import MyWishlist from "./MyWishlist";
+import Swal from "sweetalert2";
 
 const Wishlist = () => {
-    const wishlists = useLoaderData();
-    const { id } = useParams();
-    const wishlist = wishlists.find(wishlist => wishlist._id === id)
-    console.log(wishlist);
+
+    const { user } = useContext(AuthContext);
+    const [wishlists, setWishlists] = useState([])
+    const url = `http://localhost:5000/wishlist?email=${user.email}`
+    useEffect(() => {
+        fetch(url)
+            .then(res => res.json())
+            .then(data => {
+                setWishlists(data);
+            })
+    }, [url])
+    fetch('url')
+    const handleDeleted = id => {
+        const proceed =
+            Swal.fire({
+                title: "Are you sure?",
+                text: "You won't be able to revert this!",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Yes, delete it!"
+            })
+        if (proceed) {
+            fetch(`http://localhost:5000/wishlist/${id}`, {
+                method: 'DELETE'
+            })
+                .then(res => res.json())
+                .then(result => {
+                    console.log(result);
+                    if (result.deletedCount > 0) {
+                        Swal.fire({
+                            title: "Deleted!",
+                            text: "Your file has been deleted.",
+                            icon: "success"
+                        });
+                    }
+                    const remaining = wishlists.filter(wishlist => wishlist._id !== id) 
+                    setWishlists(remaining)
+                })
+        }
+    }
     return (
         <div>
             <Navbar></Navbar>
-            <div className="gird space-y-5 my-10">
-                <Card className="max-w-[80%] mx-auto flex-row">
-                    <CardHeader
-                        shadow={false}
-                        floated={false}
-                        className="m-0 w-2/5 shrink-0 rounded-r-none"
-                    >
-                        <img
-                            src={wishlist.img}
-                            alt="card-image"
-                            className="h-full w-full object-cover"
-                        />
-                    </CardHeader>
-                    <CardBody>
-                        <Typography variant="h6" color="gray" className="mb-4 uppercase">
-                            {wishlist.category}
-                        </Typography>
-                        <Typography variant="h4" color="blue-gray" className="mb-2">
-                            {wishlist.short_description}
-                        </Typography>
-                        <a href="#" className="inline-block">
-                            <div className="flex gap-9 mt-10">
-                            <Link to={`/details/${id}`}>
-                            <Button variant="text" className="flex items-center gap-2">
-                                Details
-                            </Button>
-                            </Link>
-                            <Button variant="text" className="flex text-3xl bg-red-300 items-center gap-2">
-                                <TbHttpDelete></TbHttpDelete>
-                            </Button>
-                            </div>
-                        </a>
-                    </CardBody>
-                </Card>
+            <h2 className="text-2xl text-center bg-blue-gray-100 p-5 font-semibold ">My wishlist</h2>
+            <div className="grid bg-blue-gray-50 p-10 gap-6">
+                {
+                    wishlists.map(wishlist => <MyWishlist key={wishlist._id} handleDeleted={handleDeleted} wishlist={wishlist}></MyWishlist>)
+                }
             </div>
+
             <Footer></Footer>
         </div>
     );

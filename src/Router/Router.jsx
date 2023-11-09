@@ -39,9 +39,8 @@ const myCreateRoute = createBrowserRouter([
         element: <Login></Login>
       },
       {
-        path: '/wishlist/:id',
+        path: '/wishlist',
         element: <PrivetRoute><Wishlist></Wishlist></PrivetRoute>,
-        loader: () => fetch('http://localhost:5000/language')
       },
       {
         path: '/allBlog',

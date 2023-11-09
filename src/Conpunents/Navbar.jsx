@@ -18,7 +18,13 @@ const Navbar = () => {
             <li><Link to='/addBlog'>Add Blog</Link></li>
             <li><Link to='/update'>Update</Link></li>
             <li><Link to='/registration'>Registration</Link></li>
-            <li><Link to='/wishlist'>Wishlist</Link></li>
+            {
+                user?.email?
+                <>
+                <li><Link to='/wishlist'>Wishlist</Link></li>
+                </>
+                : " "
+            }
             <li><Link to='/about'>About</Link></li>
 
         </>
