@@ -53,7 +53,7 @@ const myCreateRoute = createBrowserRouter([
       },
       {
         path: '/details/:id',
-        element: <Details></Details>,
+        element: <PrivetRoute><Details></Details></PrivetRoute>,
         loader: () => fetch('http://localhost:5000/language')
       }
     ]

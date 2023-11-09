@@ -1,4 +1,4 @@
-import { useLoaderData, useParams } from "react-router-dom";
+import { Link, useLoaderData, useParams } from "react-router-dom";
 import Footer from "../Conpunents/Footer";
 import Navbar from "../Conpunents/Navbar";
 
@@ -15,7 +15,7 @@ const Details = () => {
         <div>
             <Navbar></Navbar>
             <div className="my-5">
-                <h2 className="text-center text-3xl font-bold my-5 font-serif">Curse Details</h2>
+                <h2 className="text-center text-3xl font-bold my-5 font-serif">Blog Details</h2>
                 <div className="hero min-h-screen bg-base-200 max-w-[92%] mx-auto px-4">
                     <form >
                         <div className="hero-content flex-col lg:flex-row ">
@@ -26,7 +26,9 @@ const Details = () => {
                                     <p className="font-semibold" >short description: <span className="font-normal">{curse.short_description}</span></p>
                                 </div>
                                 <p className="py-6 justify-center pr-10">{curse.long_description}</p>
-                                <input type="submit" value="ADD TO CART" className="w-1/2 btn btn-info hover:bg-red-500" />
+                                <Link to={`/update/:id`}>
+                                <input type="submit" value="Update" className="w-1/2 btn btn-info hover:bg-red-500" />
+                                </Link>
                             </div>
                         </div>
                     </form>
