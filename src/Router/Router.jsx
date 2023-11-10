@@ -11,6 +11,7 @@ import PrivetRoute from "../PrivetRoute/PrivetRoute";
 import AllBlogs from "../Pages/AllBlogs";
 import Update from "../Pages/Update";
 import Details from "../Pages/Details";
+import Comment from "../Pages/Comment";
 
 const myCreateRoute = createBrowserRouter([
   {
@@ -54,7 +55,14 @@ const myCreateRoute = createBrowserRouter([
       {
         path: '/details/:id',
         element: <PrivetRoute><Details></Details></PrivetRoute>,
-        loader: () => fetch('http://localhost:5000/language')
+        loader: () => fetch('http://localhost:5000/language'),
+
+      },
+      {
+        path: '/comment',
+        element: <Comment></Comment>,
+        loader: ()=> fetch('http://localhost:5000/comment')
+
       }
     ]
   },
