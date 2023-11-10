@@ -21,12 +21,12 @@ const Details = () => {
                         <div className="hero-content flex-col lg:flex-row ">
                             <img src={curse.img} name="photo" className="max-w-sm mr-5 rounded-lg shadow-2xl shadow-deep-purple-200" />
                             <div>
-                                <h1 name="brandName" className="text-3xl font-bold mb-2">{curse.category}</h1>
+                                <h1 name="brandName" className="text-3xl font-bold mb-2">{curse.select}</h1>
                                 <div className="flex gap-5 my-2">
-                                    <p className="font-semibold" >short description: <span className="font-normal">{curse.short_description}</span></p>
+                                    <p className="font-semibold" >short description: <span className="font-normal">{curse.shortDescription}</span></p>
                                 </div>
-                                <p className="py-6 justify-center pr-10">{curse.long_description}</p>
-                                <Link to={`/update/:id`}>
+                                <p className="py-6 justify-center pr-10">{curse.longDescription}</p>
+                                <Link to={`/update/${id}`}>
                                 <input type="submit" value="Update" className="w-1/2 btn btn-info hover:bg-red-500" />
                                 </Link>
                             </div>

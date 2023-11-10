@@ -65,7 +65,7 @@ const AddBlog = () => {
                                             <option value="css">CSS</option>
                                             <option value="java">Java</option>
                                             <option value="python">Python</option>
-                                            <option value="laravel">Laravel</option>
+                                            <option value="c++">C++</option>
                                         </select>
                                         <h2 className="text-2xl">{selects}</h2>
                                     </label>

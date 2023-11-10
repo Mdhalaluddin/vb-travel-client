@@ -16,19 +16,20 @@ const Update = () => {
         const form = event.target;
 
         const title = form.title.value;
+        // const category = form.category.value;
         const select = form.select.value;
         const shortDescription = form.shortDescription.value;
         const longDescription = form.longDescription.value;
         const img = form.img.value;
-        const UpdateCourses = { title, select, shortDescription, longDescription, img };
-        console.log(UpdateCourses);
+        const UpdateBlog = { title, select, shortDescription, longDescription, img };
+        console.log(UpdateBlog);
 
-        fetch(`http://localhost:5000/language${_id}`, {
+        fetch(`http://localhost:5000/language/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify(UpdateCourses)
+            body: JSON.stringify(UpdateBlog)
         })
             .then(res => res.json())
             .then(data => {
