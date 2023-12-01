@@ -28,10 +28,10 @@ const MyWishlist = ({ wishlist, handleDeleted }) => {
                     </CardHeader>
                     <CardBody>
                         <Typography variant="h6" color="gray" className="mb-4 uppercase">
-                            {wishlist.category}
+                            {wishlist.select}
                         </Typography>
                         <Typography variant="h4" color="blue-gray" className="mb-2">
-                            {wishlist.short_description}
+                            {wishlist.shortDescription}
                         </Typography>
                         <a href="#" className="inline-block">
                             <div className="flex  space-x-10 gap-9 mt-10">

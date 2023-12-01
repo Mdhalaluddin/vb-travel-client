@@ -10,7 +10,7 @@ const AddBlog = () => {
     const [selects, setSelects] = useState();
     const navigate = useNavigate()
     const handleAddBlog = event => {
-        event.preventDefault()
+        event.preventDefault();
         const form = event.target;
 
         const title = form.title.value;
