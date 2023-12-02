@@ -14,10 +14,10 @@ const Navbar = () => {
     }
     const NavLink =
         <>
-            <li><Link to='/allBlog'>All Blog</Link></li>
+            <li><Link to='/'>Home</Link></li>
             <li><Link to='/addBlog'>Add Blog</Link></li>
-            <li><Link to='/update'>Update</Link></li>
-            <li><Link to='/registration'>Registration</Link></li>
+            <li><Link to='/allBlog'>All Blog</Link></li>
+            <li><Link to='/featuredBlogs '>Featured Blogs </Link></li>
             {
                 user?.email?
                 <>

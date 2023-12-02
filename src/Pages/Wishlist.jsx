@@ -45,23 +45,24 @@ const Wishlist = () => {
                             icon: "success"
                         });
                     }
-                    const remaining = wishlists.filter(wishlist => wishlist._id !== id) 
+                    const remaining = wishlists.filter(wishlist => wishlist._id !== id)
                     setWishlists(remaining)
                 })
         }
     }
     return (
-        <div>
-            <Navbar></Navbar>
-            <h2 className="text-2xl text-center bg-blue-gray-100 p-5 font-semibold ">My wishlist</h2>
-            <div className="grid bg-blue-gray-50 p-10 gap-6">
-                {
-                    wishlists.map(wishlist => <MyWishlist key={wishlist._id} handleDeleted={handleDeleted} wishlist={wishlist}></MyWishlist>)
-                }
-            </div>
 
+        <>
+            <Navbar></Navbar>
+            <h2 className="text-2xl text-center  p-5 font-semibold ">My wishlist</h2>
+                <div className="grid my-3 bg-blue-gray-50 p-10 gap-6 max-w-[92%] mx-auto">
+                    {
+                        wishlists.map(wishlist => <MyWishlist key={wishlist._id} handleDeleted={handleDeleted} wishlist={wishlist}></MyWishlist>)
+                    }
+                </div>
             <Footer></Footer>
-        </div>
+        </>
+
     );
 };
 

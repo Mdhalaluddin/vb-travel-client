@@ -13,7 +13,7 @@ const MyWishlist = ({ wishlist, handleDeleted }) => {
     const { _id } = wishlist;
     
         return (
-            <div>
+            <div className='w-full'>
                 <Card key={wishlist._id} className="max-w-[80%] mx-auto flex-row">
                     <CardHeader
                         shadow={false}
@@ -27,16 +27,16 @@ const MyWishlist = ({ wishlist, handleDeleted }) => {
                         />
                     </CardHeader>
                     <CardBody>
-                        <Typography variant="h6" color="gray" className="mb-4 uppercase">
-                            {wishlist.select}
+                        <Typography variant="h6" color="gray" className="mb-4 uppercase md:text-xl text-xs">
+                            {wishlist.category}
                         </Typography>
-                        <Typography variant="h4" color="blue-gray" className="mb-2">
+                        <Typography variant="h4" color="blue-gray" className="mb-2 md:text-2xl text-sm md:w-full w-40">
                             {wishlist.shortDescription}
                         </Typography>
                         <a href="#" className="inline-block">
-                            <div className="flex  space-x-10 gap-9 mt-10">
+                            <div className="flex-row-reverse md:flex  md:w-full w-72 md:space-x-10 md:gap-9 gap-2 mt-10">
                                 <Link to={`/details/${_id}`}>
-                                    <Button variant="text" className="flex font-semibold btn-sm bg-green-200 items-center gap-2">
+                                    <Button variant="text" className="flex font-semibold btn-sm bg-green-200 items-center gap-2 my-3 md:my-0">
                                         Details
                                     </Button>
                                 </Link>

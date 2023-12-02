@@ -9,7 +9,7 @@ const Update = () => {
     const curses = useLoaderData();
     console.log(curses);
     const navigate = useNavigate()
-    const { _id, title, select, shortDescription, longDescription, img } = curses;
+    const { _id, title, category, shortDescription, longDescription, img } = curses;
     const [selects, setSelects] = useState();
     const handleUpdateBlog = event => {
         event.preventDefault();
@@ -17,11 +17,11 @@ const Update = () => {
 
         const title = form.title.value;
         // const category = form.category.value;
-        const select = form.select.value;
+        const category = form.category.value;
         const shortDescription = form.shortDescription.value;
         const longDescription = form.longDescription.value;
         const img = form.img.value;
-        const UpdateBlog = { title, select, shortDescription, longDescription, img };
+        const UpdateBlog = { title, category, shortDescription, longDescription, img };
         console.log(UpdateBlog);
 
         fetch(`http://localhost:5000/language/${_id}`, {
@@ -61,7 +61,7 @@ const Update = () => {
                                 </div>
                                 <div className="form-control ml-10">
                                     <label className="label grid space-y-4">
-                                        <select defaultValue={select} name="select" value={selects} onChange={e => setSelects(e.target.value)}>
+                                        <select defaultValue={category} name="category" value={selects} onChange={e => setSelects(e.target.value)}>
                                             <option value="">category</option>
                                             <option value="html">Html</option>
                                             <option value="css">CSS</option>

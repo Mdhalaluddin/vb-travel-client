@@ -12,6 +12,7 @@ import AllBlogs from "../Pages/AllBlogs";
 import Update from "../Pages/Update";
 import Details from "../Pages/Details";
 import Comment from "../Pages/Comment";
+import FeaturedBlogs from "../Pages/FeaturedBlogs";
 
 const myCreateRoute = createBrowserRouter([
   {
@@ -38,6 +39,10 @@ const myCreateRoute = createBrowserRouter([
       {
         path: '/login',
         element: <Login></Login>
+      },
+      {
+        path: '/featuredBlogs',
+        element: <FeaturedBlogs></FeaturedBlogs>,
       },
       {
         path: '/wishlist',

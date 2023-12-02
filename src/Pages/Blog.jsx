@@ -13,7 +13,7 @@ import Swal from "sweetalert2";
 
 const Blog = ({ language }) => {
     const navigate = useNavigate()
-    const { _id, img, select, shortDescription } = language;
+    const { _id, img, category, shortDescription } = language;
     console.log(language);
     const handleWishlist = e => {
         e.preventDefault()
@@ -50,7 +50,7 @@ const Blog = ({ language }) => {
                 <CardBody>
                     <div className="mb-2 flex items-center justify-between">
                         <Typography color="blue-gray" className="font-medium">
-                            {select}
+                            {category}
                         </Typography>
                         <Typography color="blue-gray" className="font-medium text-2xl text-red-400">
                             <Link onClick={handleWishlist} to={`/wishlist/${_id}`}><MdFavorite></MdFavorite></Link>

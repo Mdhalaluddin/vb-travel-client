@@ -14,12 +14,12 @@ const AddBlog = () => {
         const form = event.target;
 
         const title = form.title.value;
-        const select = form.select.value;
+        const category = form.category.value;
         const shortDescription = form.shortDescription.value;
         const longDescription = form.longDescription.value;
         const img = form.img.value;
         // console.log({ title, select, shortDescription, longDescription, img });
-        const newCourses = { title, select, shortDescription, longDescription, img };
+        const newCourses = { title, category, shortDescription, longDescription, img };
         console.log(newCourses);
 
         fetch('http://localhost:5000/language', {
@@ -59,7 +59,7 @@ const AddBlog = () => {
                                 </div>
                                 <div className="form-control ml-10">
                                     <label className="label grid space-y-4">
-                                        <select name="select" value={selects} onChange={e=> setSelects(e.target.value)}>
+                                        <select name="category" value={selects} onChange={e=> setSelects(e.target.value)}>
                                             <option value="">category</option>
                                             <option value="html">Html</option>
                                             <option value="css">CSS</option>
