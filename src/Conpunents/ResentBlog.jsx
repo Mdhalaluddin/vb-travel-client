@@ -1,21 +1,20 @@
 // import { useQuery } from "@tanstack/react-query";
-// // import { useState } from "react";
 // import { axiosSecure } from "../hooks/useAxios";
 
-const ResentBlog = () => {
-    // const [blogs, setBlog] = useState([]);
 
-    // const { data } = useQuery({
-    //     queryKey: ['blogs'],
+const ResentBlog = () => {
+    // const { data: resent } = useQuery({
+    //     queryKey: ['blog'],
     //     queryFn: async () => {
-    //         const data = await axiosSecure.get('resent/blog')
-    //         return await data.json();
+    //         const res = await axiosSecure.get('/language/create')
+    //         return res;
     //     }
     // })
-    // console.log(data);
+    // console.log(resent.data);
+
     return (
         <div>
-            <h1>Blog: {}</h1>
+            {/* <h1>Blog: {resent.length}</h1> */}
         </div>
     );
 };

@@ -3,23 +3,24 @@ import Footer from "../Conpunents/Footer";
 import Navbar from "../Conpunents/Navbar";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import { useContext } from "react";
+import { AuthContext } from "../AuthProvider/AuthProvider";
 
 
 const AddBlog = () => {
-
+    const {user} = useContext(AuthContext)
     const [selects, setSelects] = useState();
     const navigate = useNavigate()
     const handleAddBlog = event => {
         event.preventDefault();
         const form = event.target;
-
         const title = form.title.value;
         const category = form.category.value;
         const shortDescription = form.shortDescription.value;
         const longDescription = form.longDescription.value;
         const img = form.img.value;
         // console.log({ title, select, shortDescription, longDescription, img });
-        const newCourses = { title, category, shortDescription, longDescription, img };
+        const newCourses = {title, category, shortDescription, longDescription, img ,user};
         console.log(newCourses);
 
         fetch('http://localhost:5000/language', {
@@ -31,7 +32,7 @@ const AddBlog = () => {
         })
         .then(res => res.json())
         .then(data=>{
-                if (data.insertedId > 0) {
+                if (data.insertedId) {
                     Swal.fire(
                         'Good job!',
                         'Food Added successfully!',

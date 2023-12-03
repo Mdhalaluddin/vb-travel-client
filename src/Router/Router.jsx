@@ -43,6 +43,7 @@ const myCreateRoute = createBrowserRouter([
       {
         path: '/featuredBlogs',
         element: <FeaturedBlogs></FeaturedBlogs>,
+        // loader: ()=> fetch('http://localhost:5000/language')
       },
       {
         path: '/wishlist',
@@ -60,14 +61,11 @@ const myCreateRoute = createBrowserRouter([
       {
         path: '/details/:id',
         element: <PrivetRoute><Details></Details></PrivetRoute>,
-        loader: () => fetch('http://localhost:5000/language'),
-
+        loader: ({params}) => fetch(`http://localhost:5000/language/${params.id}`)
       },
       {
         path: '/comment',
-        element: <Comment></Comment>,
-        loader: ()=> fetch('http://localhost:5000/comment')
-
+        element: <Comment></Comment>
       }
     ]
   },

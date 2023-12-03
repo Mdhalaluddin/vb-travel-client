@@ -40,7 +40,7 @@ const Navbar = () => {
                             {NavLink}
                         </ul>
                     </div>
-                    <Link to='/'>
+                    <Link to='/'> 
                         <img className="w-20 h-14" src="https://i.ibb.co/k18449P/download-removebg-preview.png" alt="" />
                     </Link>
                 </div>

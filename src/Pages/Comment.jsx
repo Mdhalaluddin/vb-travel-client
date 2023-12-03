@@ -1,13 +1,14 @@
-import { useLoaderData } from "react-router-dom";
+
 {/* comment box start */ }
 import { Textarea, Button } from "@material-tailwind/react";
 import { useContext } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
+import AllComment from "./AllComment";
 {/* comment box end */ }
 
 const Comment = () => {
-    const comments = useLoaderData();
-    console.log(comments);
+    // const comments = useLoaderData();
+    // console.log(comments);
     const {user} = useContext(AuthContext); 
     {/* comment box start */ }
     const handleCommentBtn = e => {
@@ -40,10 +41,7 @@ const Comment = () => {
     return (
         <div>
             <div>
-                <h1>data {comments.length}</h1>
-                {
-                    comments.map(comment =><p key={comment._id}> {comment?.comment?.user}</p> )
-                }
+                <AllComment></AllComment>
             </div>
             <form onSubmit={handleCommentBtn}>
                     <div className="relative bg-red-50 p-10  my-5 w-[50%]">

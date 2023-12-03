@@ -16,7 +16,7 @@ const AllBlogs = () => {
     }
 
     useEffect(() => {
-        fetch(`http://localhost:5000/language?search=${search}`)
+        fetch(`http://localhost:5000/language?search=${search}`,{credentials: 'include'})
             .then(res => res.json())
             .then(data => setLanguage(data))
         console.log(data);

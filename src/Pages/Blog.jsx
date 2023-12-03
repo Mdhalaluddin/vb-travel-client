@@ -25,7 +25,8 @@ const Blog = ({ language }) => {
             body: JSON.stringify(language)
         })
             .then(res => res.json())
-            .then(data => { console.log(data);
+            .then(data => {
+                console.log(data);
                 if (data.insertedId) {
                     Swal.fire(
                         'success',

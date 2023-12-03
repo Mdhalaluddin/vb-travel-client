@@ -1,7 +1,5 @@
-
 import Navbar from "../Conpunents/Navbar";
 import Footer from "../Conpunents/Footer";
-
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import MyWishlist from "./MyWishlist";
@@ -10,7 +8,7 @@ import Swal from "sweetalert2";
 const Wishlist = () => {
 
     const { user } = useContext(AuthContext);
-    const [wishlists, setWishlists] = useState([])
+    const [wishlists, setWishlists] = useState([]);
     const url = `http://localhost:5000/wishlist?email=${user.email}`
     useEffect(() => {
         fetch(url)
@@ -57,7 +55,7 @@ const Wishlist = () => {
             <h2 className="text-2xl text-center  p-5 font-semibold ">My wishlist</h2>
                 <div className="grid my-3 bg-blue-gray-50 p-10 gap-6 max-w-[92%] mx-auto">
                     {
-                        wishlists.map(wishlist => <MyWishlist key={wishlist._id} handleDeleted={handleDeleted} wishlist={wishlist}></MyWishlist>)
+                        wishlists?.map(wishlist => <MyWishlist key={wishlist._id} handleDeleted={handleDeleted} wishlist={wishlist}></MyWishlist>)
                     }
                 </div>
             <Footer></Footer>
