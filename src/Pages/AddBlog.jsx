@@ -23,7 +23,7 @@ const AddBlog = () => {
         const newCourses = {title, category, shortDescription, longDescription, img ,user};
         console.log(newCourses);
 
-        fetch('http://localhost:5000/language', {
+        fetch('https://vb-travel-server.vercel.app/language', {
             method: 'POST',
             headers:{
                 'content-type': 'application/json'

@@ -43,7 +43,7 @@ const myCreateRoute = createBrowserRouter([
       {
         path: '/featuredBlogs',
         element: <FeaturedBlogs></FeaturedBlogs>,
-        // loader: ()=> fetch('http://localhost:5000/language')
+        // loader: ()=> fetch('https://vb-travel-server.vercel.app/language')
       },
       {
         path: '/wishlist',
@@ -56,12 +56,12 @@ const myCreateRoute = createBrowserRouter([
       {
         path: '/update/:id',
         element: <PrivetRoute><Update></Update></PrivetRoute>,
-        loader: ({ params }) => fetch(`http://localhost:5000/language/${params.id}`)
+        loader: ({ params }) => fetch(`https://vb-travel-server.vercel.app/language/${params.id}`)
       },
       {
         path: '/details/:id',
         element: <PrivetRoute><Details></Details></PrivetRoute>,
-        loader: ({params}) => fetch(`http://localhost:5000/language/${params.id}`)
+        loader: ({params}) => fetch(`https://vb-travel-server.vercel.app/language/${params.id}`)
       },
       {
         path: '/comment',

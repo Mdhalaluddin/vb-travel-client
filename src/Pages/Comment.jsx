@@ -20,7 +20,7 @@ const Comment = () => {
         const newCommit = {comment, user}
         console.log(newCommit);
 
-        fetch('http://localhost:5000/comment',{
+        fetch('https://vb-travel-server.vercel.app/comment',{
             method: 'POST',
             headers: {
                 'content-type' : 'application/json'

@@ -24,7 +24,7 @@ const Update = () => {
         const UpdateBlog = { title, category, shortDescription, longDescription, img };
         console.log(UpdateBlog);
 
-        fetch(`http://localhost:5000/language/${_id}`, {
+        fetch(`https://vb-travel-server.vercel.app/language/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

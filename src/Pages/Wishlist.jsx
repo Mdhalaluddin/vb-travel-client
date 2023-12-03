@@ -9,7 +9,7 @@ const Wishlist = () => {
 
     const { user } = useContext(AuthContext);
     const [wishlists, setWishlists] = useState([]);
-    const url = `http://localhost:5000/wishlist?email=${user.email}`
+    const url = `https://vb-travel-server.vercel.app/wishlist?email=${user.email}`
     useEffect(() => {
         fetch(url)
             .then(res => res.json())
@@ -17,7 +17,7 @@ const Wishlist = () => {
                 setWishlists(data);
             })
     }, [url])
-    fetch('url')
+    // fetch('url')
     const handleDeleted = id => {
         const proceed =
             Swal.fire({
@@ -30,12 +30,12 @@ const Wishlist = () => {
                 confirmButtonText: "Yes, delete it!"
             })
         if (proceed) {
-            fetch(`http://localhost:5000/wishlist/${id}`, {
+            fetch(`https://vb-travel-server.vercel.app/wishlist/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())
                 .then(result => {
-                    console.log(result);
+                    console.log(result.data);
                     if (result.deletedCount > 0) {
                         Swal.fire({
                             title: "Deleted!",
@@ -55,7 +55,7 @@ const Wishlist = () => {
             <h2 className="text-2xl text-center  p-5 font-semibold ">My wishlist</h2>
                 <div className="grid my-3 bg-blue-gray-50 p-10 gap-6 max-w-[92%] mx-auto">
                     {
-                        wishlists?.map(wishlist => <MyWishlist key={wishlist._id} handleDeleted={handleDeleted} wishlist={wishlist}></MyWishlist>)
+                        wishlists.map(wishlist => <MyWishlist key={wishlist._id} handleDeleted={handleDeleted} wishlist={wishlist}></MyWishlist>)
                     }
                 </div>
             <Footer></Footer>

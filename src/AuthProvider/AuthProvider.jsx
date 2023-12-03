@@ -41,14 +41,14 @@ const AuthProvider = ({ children }) => {
             setLoading(false);
             // jwt
             if (createUser) {
-                axios.post('http://localhost:5000/jwt', loggedUser, {
+                axios.post('https://vb-travel-server.vercel.app/jwt', loggedUser, {
                     withCredentials: true
                 })
                     .then(res => {
                         console.log('token access', res.data);
                     })
             } else {
-                axios.post('http://localhost:5000/logout', loggedUser,{
+                axios.post('https://vb-travel-server.vercel.app/logout', loggedUser,{
                     withCredentials: true
                 })
                 .then(res =>{

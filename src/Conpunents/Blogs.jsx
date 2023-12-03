@@ -1,46 +1,14 @@
-import {
-    Card,
-    CardHeader,
-    CardBody,
-    Typography,
-    Button,
-} from "@material-tailwind/react";
-import { MdFavorite } from 'react-icons/Md';
-import { Link, useNavigate } from "react-router-dom";
-import PropTypes from 'prop-types';
-import Swal from "sweetalert2";
+import { Button, Card, CardBody, CardHeader, Typography } from "@material-tailwind/react";
+import { MdFavorite } from "react-icons/Md";
+import { Link } from "react-router-dom";
 
 
-const Blog = ({ language }) => {
-    const navigate = useNavigate()
-    const { _id, img, category, shortDescription } = language;
-    console.log(language);
-    const handleWishlist = e => {
-        e.preventDefault()
-        fetch('https://vb-travel-server.vercel.app/wishlist', {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(language)
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
-                if (data.insertedId) {
-                    Swal.fire(
-                        'success',
-                        'Your request successfully!',
-                        'success'
-                    )
-                    return navigate("/wishlist")
-                }
-            })
-    }
+const Blogs = ({resent}) => {
+    const { _id, img, category, shortDescription } = resent;
     return (
-
-        <Card className="w-96">
-            <form onSubmit={handleWishlist}>
+        <div>
+            <Card className="w-96">
+            <form>
                 <CardHeader shadow={false} floated={false} className="h-96">
                     <img
                         src={img}
@@ -54,7 +22,7 @@ const Blog = ({ language }) => {
                             {category}
                         </Typography>
                         <Typography color="blue-gray" className="font-medium text-2xl text-red-400">
-                            <Link onClick={handleWishlist} to={`/wishlist/${_id}`}><MdFavorite></MdFavorite></Link>
+                            <Link to={`/wishlist/${_id}`}><MdFavorite></MdFavorite></Link>
                         </Typography>
                     </div>
                     <Typography
@@ -89,11 +57,8 @@ const Blog = ({ language }) => {
 
             </form>
         </Card>
+        </div>
     );
 };
 
-Blog.propTypes = {
-    language: PropTypes.array
-}
-
-export default Blog;
+export default Blogs;
