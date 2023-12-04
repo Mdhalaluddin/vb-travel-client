@@ -16,7 +16,7 @@ const AllBlogs = () => {
     }
 
     useEffect(() => {
-        fetch(`https://vb-travel-server.vercel.app/language?search=${search}`,{credentials: 'include'})
+        fetch(`https://vb-travel-server.vercel.app/language?category=${search}`,{credentials: 'include'})
             .then(res => res.json())
             .then(data => setLanguage(data))
         console.log(data);
